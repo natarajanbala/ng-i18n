@@ -1,0 +1,22 @@
+<div>
+  <h2>{{ 'HOME.TITLE' | translate }}</h2>
+  <label>
+
+    <select #vertSelect (change)="onVerticalChange($event)">
+      <option value="correctional">Correctional</option>
+      <option value="hhs">HHS</option>
+    </select>
+  </label>
+  <br/>
+  <br/>
+  <label>
+    {{ 'HOME.GREETING' | translate }}
+    <select #langSelect (change)="onLangChange($event)">
+      <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+    </select>
+  </label>
+
+  <button (click)="apply()">Apply</button>
+
+
+</div>
